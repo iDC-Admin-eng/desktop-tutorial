@@ -33,7 +33,28 @@
       color: transparent;
     }
     
-    /* === NEW: Gentle Pulse Animation for attention === */
+    /* === NEW: Text Shine Animation === */
+    .text-shine {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+    .text-shine::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        background: linear-gradient(100deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 80%);
+        transform: translateX(-110%);
+        animation: text-shine-anim 2.5s infinite linear;
+    }
+    @keyframes text-shine-anim {
+        to { transform: translateX(110%); }
+    }
+
+    /* === Gentle Pulse Animation for attention === */
     @keyframes pulse {
         0%, 100% { transform: scale(1); }
         50% { transform: scale(1.04); }
@@ -42,7 +63,7 @@
         animation: pulse 2.5s infinite ease-in-out;
     }
 
-    /* === NEW: Silver & Rose Gold Shine Buttons === */
+    /* === Silver & Rose Gold Shine Buttons === */
     .btn-shine {
         position: relative;
         overflow: hidden;
@@ -66,26 +87,26 @@
 
     .btn-silver {
         background: linear-gradient(145deg, #f0f0f0, #b0b0b0); /* light to medium silver */
-    color: #334155; /* dark slate text for contrast */
-    border: 1px solid #d1d1d1; /* soft silver border */
-    box-shadow: 0 4px 6px rgba(176, 176, 176, 0.5); /* subtle silver shadow */
-    transition: background 0.3s ease;
+        color: #334155; /* dark slate text for contrast */
+        border: 1px solid #d1d1d1; /* soft silver border */
+        box-shadow: 0 4px 6px rgba(176, 176, 176, 0.5); /* subtle silver shadow */
+        transition: background 0.3s ease;
     }
     .btn-silver:hover {
-    background: linear-gradient(145deg, #b0b0b0, #f0f0f0);
-    box-shadow: 0 6px 8px rgba(176, 176, 176, 0.7);
-}
+        background: linear-gradient(145deg, #b0b0b0, #f0f0f0);
+        box-shadow: 0 6px 8px rgba(176, 176, 176, 0.7);
+    }
     .btn-rosegold {
- background: linear-gradient(135deg, #b8860b, #ffd700); /* dark goldenrod to gold */
-  color: #3b2e00; /* dark brown text for contrast */
-  box-shadow: 0 4px 8px rgba(184, 134, 11, 0.6);
-  border: 1px solid #b8860b;
-  transition: background 0.3s ease;
+        background: linear-gradient(135deg, #b8860b, #ffd700); /* dark goldenrod to gold */
+        color: #3b2e00; /* dark brown text for contrast */
+        box-shadow: 0 4px 8px rgba(184, 134, 11, 0.6);
+        border: 1px solid #b8860b;
+        transition: background 0.3s ease;
     }
     .btn-rosegold:hover {
-  background: linear-gradient(135deg, #ffd700, #b8860b);
-  box-shadow: 0 6px 10px rgba(255, 215, 0, 0.8);
-}
+        background: linear-gradient(135deg, #ffd700, #b8860b);
+        box-shadow: 0 6px 10px rgba(255, 215, 0, 0.8);
+    }
     .btn-shine:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.1);
@@ -181,7 +202,123 @@
       <div class="group perspective mentor-card-container"><div class="relative w-full h-[12rem] mentor-card preserve-3d"><div class="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg"><div class="w-full h-full flex items-center justify-center text-center p-4 bg-slate-100 border-2 border-dashed border-slate-300"><span class="text-lg font-bold text-slate-500">More Mentors Coming Soon!</span></div></div><div class="mentor-card-back absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-xl shadow-xl flex flex-col justify-center items-center text-center p-3"><h4 class="text-[#073B4C]">Join Us</h4><p class="text-slate-600">We're always looking for new IITians to join our team and mentor the next generation!</p></div></div></div>
     </section>
 
-    <section class="pb-20 md:pb-28"><div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-200/50"><div class="text-center mb-10"><h2 class="text-4xl text-slate-800 font-extrabold">Everything You Need to Succeed</h2><p class="text-lg text-slate-500 mt-2">All the resources to boost your preparation, in one place.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"><div class="group relative"><button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left"><div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📄</div><div class="flex-1"><div class="font-semibold text-slate-800">PYQs</div><div class="text-sm text-slate-500">Solved papers</div></div></button><div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10"><a href="gate_2025_paper.html" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a></div></div><div class="group relative"><button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left"><div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📖</div><div class="flex-1"><div class="font-semibold text-slate-800">Notes</div><div class="text-sm text-slate-500">Study materials</div></div></button><div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10"><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a></div></div><div class="group relative"><button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left"><div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">🗺️</div><div class="flex-1"><div class="font-semibold text-slate-800">Syllabus & Plan</div><div class="text-sm text-slate-500">Guides & roadmaps</div></div></button><div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10"><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a></div></div><div class="group relative"><button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left"><div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📈</div><div class="flex-1"><div class="font-semibold text-slate-800">Dashboard</div><div class="text-sm text-slate-500">Track your progress</div></div></button><div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10"><a href="gate-dashboard.htm" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a><a href="cuet-dashboard-2.html" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a></div></div><div class="group relative"><button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left"><div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📊</div><div class="flex-1"><div class="font-semibold text-slate-800">Mock Tests</div><div class="text-sm text-slate-500">Practice exams</div></div><span class="coming-soon">Soon</span></button><div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10"><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a></div></div><div class="group relative"><button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left"><div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📰</div><div class="flex-1"><div class="font-semibold text-slate-800">Exam Updates</div><div class="text-sm text-slate-500">Latest news</div></div></button><div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10"><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a><a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a></div></div><div class="group relative"><button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left"><div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📅</div><div class="flex-1"><div class="font-semibold text-slate-800">Live Guidance</div><div class="text-sm text-slate-500">Sunday sessions</div></div></button><div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10"><a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a><a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a><a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a><a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a></div></div><div class="group relative"><button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left"><div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">💬</div><div class="flex-1"><div class="font-semibold text-slate-800">Talk to Mentor</div><div class="text-sm text-slate-500">Expert guidance</div></div></button><div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10"><a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a><a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a><a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a><a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a></div></div></div></div></section>
+    <section class="pb-20 md:pb-28">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-200/50">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl text-slate-800 font-extrabold">Everything You Need to Succeed</h2>
+                <p class="text-lg text-slate-500 mt-2">All the resources to boost your preparation, in one place.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📄</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">PYQs</div>
+                            <div class="text-sm text-slate-500">Solved papers</div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="gate_2025_paper.html" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50 flex justify-between items-center"><span>GATE</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50 flex justify-between items-center"><span>IIT-JAM</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50 flex justify-between items-center"><span>CUET</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50 flex justify-between items-center"><span>UGC-NET</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📖</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Notes</div>
+                            <div class="text-sm text-slate-500">Study materials</div>
+                        </div>
+                        <span class="coming-soon">Soon</span>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">🗺️</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Syllabus & Plan + live tracker</div>
+                            <div class="text-sm text-slate-500">Guides & roadmaps</div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50 flex justify-between items-center"><span>GATE</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50 flex justify-between items-center"><span>IIT-JAM</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50 flex justify-between items-center"><span>CUET</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50 flex justify-between items-center"><span>UGC-NET</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📊</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Mock Tests</div>
+                            <div class="text-sm text-slate-500">Practice exams</div>
+                        </div>
+                        <span class="coming-soon">Soon</span>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📰</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Exam Updates</div>
+                            <div class="text-sm text-slate-500">Latest news</div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📅</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Live Guidance</div>
+                            <div class="text-sm text-slate-500"><span class="text-shine font-semibold text-slate-600">Sunday sessions</span></div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">💬</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Talk to Mentor</div>
+                            <div class="text-sm text-slate-500">Expert guidance</div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <section class="py-20 md:py-28">
       <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -193,22 +330,72 @@
       </div>
     </section>
 
-    <div id="pricing-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-start justify-center p-4 pt-16 sm:p-6 md:items-center md:pt-6 z-50 transition-opacity duration-300 overflow-y-auto">
-      <div class="bg-slate-50 rounded-2xl shadow-xl p-6 md:p-8 max-w-5xl w-full relative transform scale-95 transition-transform duration-300">
-        <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
-        <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Choose Your Plan</h2>
-        <p class="text-center text-slate-500 mb-8">Your journey, guided by IITians. Plans that work for you.</p>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="border border-slate-200 bg-white rounded-xl p-6 flex flex-col"><h3 class="text-2xl font-bold text-[#073B4C]">Plus</h3><p class="text-slate-500 mb-4 h-10">Perfect for the self-driven student.</p><div class="mb-6"><p class="text-4xl font-bold text-slate-800"><del class="text-slate-400 font-normal text-2xl">₹399</del> Free</p><p class="text-slate-500 text-sm">per month</p><p class="font-semibold text-green-700 text-sm mt-1 bg-green-100 px-2 py-1 inline-block rounded">Free until 15th Oct</p></div><a href="dashboard.html" class="btn-liquid w-full block"><span class="inner">Claim Now!</span></a><ul class="mt-6 space-y-3 text-sm flex-grow"><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>The iDC Roadmap (PYQ-Mapped)</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Personal Weekly Blueprint</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Weekly Group Huddle</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Community Forum Access</span></li><li class="flex gap-3 text-slate-400"><svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li><li class="flex gap-3 text-slate-400"><svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>24/7 Doubt Buddy</span></li></ul></div>
-          <div class="border-2 border-[#118AB2] bg-white rounded-xl p-6 flex flex-col relative shadow-lg"><div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#118AB2] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</div><h3 class="text-2xl font-bold text-[#073B4C]">Pro</h3><p class="text-slate-500 mb-4 h-10">Your personal guide for a focused prep.</p><div class="mb-6"><p class="text-4xl font-bold text-slate-800">₹699</p><p class="text-slate-500 text-sm">per month</p></div>
-            <a href="https://rzp.io/l/i5AsJ6h6" class="btn-shine btn-silver w-full block py-3 text-base font-bold rounded-lg text-center">Upgrade to Pro</a>
-          <ul class="mt-6 space-y-3 text-sm flex-grow"><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Everything in Plus, and:</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>24/7 Doubt Buddy (via Chat)</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span><b>Two</b> 1:1 Strategy Sessions / month</span></li></ul></div>
-          <div class="border border-slate-200 bg-white rounded-xl p-6 flex flex-col"><h3 class="text-2xl font-bold text-[#073B4C]">Ultra</h3><p class="text-slate-500 mb-4 h-10">Master your climb with priority access.</p><div class="mb-6"><p class="text-4xl font-bold text-slate-800">₹999</p><p class="text-slate-500 text-sm">per month</p></div>
-            <a href="https://rzp.io/l/VCz84tg" class="btn-shine btn-rosegold w-full block py-3 text-base font-bold rounded-lg text-center">Upgrade to Ultra</a>
-          <ul class="mt-6 space-y-3 text-sm flex-grow"><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Everything in Pro, and:</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span><b>Four</b> 1:1 Strategy Sessions / month</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Open-Door Mentor Policy</span></li><li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Priority Pass for Doubts</span></li></ul></div>
+   <div id="pricing-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-start justify-center p-4 pt-16 sm:p-6 md:items-center md:pt-6 z-50 transition-opacity duration-300 overflow-y-auto">
+  <div class="bg-slate-50 rounded-2xl shadow-xl p-6 md:p-8 max-w-5xl w-full relative transform scale-95 transition-transform duration-300">
+    <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Choose Your Plan</h2>
+    <p class="text-center text-slate-500 mb-8">Your journey, guided by IITians. Plans that work for you.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="border border-slate-200 bg-white rounded-xl p-6 flex flex-col">
+        <h3 class="text-2xl font-bold text-[#073B4C]">Plus</h3>
+        <p class="text-slate-500 mb-4 h-10">Perfect for the self-driven student.</p>
+        <div class="mb-6">
+          <p class="text-4xl font-bold text-slate-800"><del class="text-slate-400 font-normal text-2xl">₹399</del> Free</p>
+          <p class="text-slate-500 text-sm">per month</p>
+          <p class="font-semibold text-green-700 text-sm mt-1 bg-green-100 px-2 py-1 inline-block rounded">Free until 15th Oct</p>
         </div>
+        <a href="dashboard.html" class="btn-liquid w-full block"><span class="inner">Claim Now!</span></a>
+        <ul class="mt-6 space-y-3 text-sm flex-grow">
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Detailed PYQ Solutions with Doubt Support</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Personal topic to topic time tracker</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Weekly live session with mentors</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>iDC Group Access</span></li>
+          <li class="flex gap-3 text-slate-400"><svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li>
+          <li class="flex gap-3 text-slate-400"><svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>24/7 Doubt Resolution via audio/video</span></li>
+        </ul>
+      </div>
+
+      <div class="border-2 border-[#118AB2] bg-white rounded-xl p-6 flex flex-col relative shadow-lg">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#118AB2] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</div>
+        <h3 class="text-2xl font-bold text-[#073B4C]">Pro</h3>
+        <p class="text-slate-500 mb-4 h-10">Your personal guide for a focused prep.</p>
+        <div class="mb-6">
+          <p class="text-4xl font-bold text-slate-800">₹699</p>
+          <p class="text-slate-500 text-sm">per month</p>
+        </div>
+        <a href="https://rzp.io/l/i5AsJ6h6" class="btn-shine btn-silver w-full block py-3 text-base font-bold rounded-lg text-center">Upgrade to Pro</a>
+        <ul class="mt-6 space-y-3 text-sm flex-grow">
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Everything in Plus, and:</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>24/7 Doubt Resolution via audio/video</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span><b>Two</b> 1:1 Strategy Sessions / month</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span class="font-semibold text-sky-700">Topic-wise Mock Tests (GATE, CUET, JAM & NET)</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span class="font-semibold text-sky-700">Adaptive Mocks (Based on Your Weak Areas)</span></li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 bg-white rounded-xl p-6 flex flex-col">
+        <h3 class="text-2xl font-bold text-[#073B4C]">Ultra</h3>
+        <p class="text-slate-500 mb-4 h-10">Master your climb with priority access.</p>
+        <div class="mb-6">
+          <p class="text-4xl font-bold text-slate-800">₹999</p>
+          <p class="text-slate-500 text-sm">per month</p>
+        </div>
+        <a href="https://rzp.io/l/VCz84tg" class="btn-shine btn-rosegold w-full block py-3 text-base font-bold rounded-lg text-center">Upgrade to Ultra</a>
+        <ul class="mt-6 space-y-3 text-sm flex-grow">
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Everything in Pro, and:</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span><b>Four</b> 1:1 Strategy Sessions / month</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Priority Pass for Doubts</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span class="font-semibold text-sky-700">Full-Length Mock Series (GATE, CUET, JAM & NET)</span></li>
+        </ul>
       </div>
     </div>
+  </div>
+</div>
   </main>
 
   <footer class="text-center py-10 bg-white border-t"><p class="text-slate-500 text-sm">&copy; 2025 iDC - IITians Doubt Counter. All Rights Reserved.</p></footer>
