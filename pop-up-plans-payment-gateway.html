@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upgrade Plan Button</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Keyframes for the sweeping light animation */
+    @keyframes animated-shine {
+      0% {
+        transform: translateX(-110%);
+      }
+      100% {
+        transform: translateX(110%);
+      }
+    }
+
+    #upgrade-btn {
+      display: inline-block;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.125rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, #8B5CF6 0%, #6366F1 50%, #3B82F6 100%);
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    #upgrade-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    #upgrade-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      filter: blur(20px);
+      transform: translateX(-110%) skewX(-20deg);
+      animation: animated-shine 3.5s infinite;
+      animation-delay: 1.5s;
+    }
+  </style>
+</head>
+<body class="bg-transparent">
+  <button id="upgrade-btn">
+    ✨ Get Started
+  </button>
+
+  <div id="pricing-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-start justify-center p-4 pt-16 sm:p-6 md:items-center md:pt-6 z-50 transition-opacity duration-300 overflow-y-auto">
+    <div class="bg-slate-50 rounded-2xl shadow-xl p-6 md:p-8 max-w-5xl w-full relative">
+      <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Choose the plan that's right for you</h2>
+      <p class="text-center text-gray-500 mb-8">Your journey, guided by IITians. Plans that work for you.</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border border-gray-200 bg-white rounded-xl p-6 flex flex-col">
+          <h3 class="text-2xl font-bold text-[#073B4C]">Plus</h3>
+          <p class="text-gray-500 mb-4 h-10">Perfect for the self-driven student.</p>
+          <div class="mb-6">
+            <p class="text-4xl font-bold text-gray-800"><del class="text-gray-400 font-normal">₹399</del> Free</p>
+            <p class="text-gray-500 text-sm">per month</p>
+            <p class="font-semibold text-green-600 text-sm mt-1 bg-green-100 px-2 py-1 inline-block rounded">Free till 15 Oct</p>
+          </div>
+          <button class="w-full mt-auto py-2 px-4 font-bold text-slate-500 bg-slate-200 rounded-lg cursor-default">
+            Your Current Plan
+          </button>
+          <ul class="mt-6 space-y-3 text-sm flex-grow">
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>The iDC Roadmap (PYQ-Mapped)</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Personal Weekly Blueprint</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Weekly Group Huddle</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Community Forum Access</span></li>
+            <li class="flex gap-3 text-gray-400"><svg class="w-5 h-5 text-red-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li>
+            <li class="flex gap-3 text-gray-400"><svg class="w-5 h-5 text-red-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>24/7 Doubt Buddy (via Chat)</span></li>
+            <li class="flex gap-3 text-gray-400"><svg class="w-5 h-5 text-red-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>1:1 Strategy Sessions</span></li>
+          </ul>
+        </div>
+
+        <div class="border-2 border-[#118AB2] bg-white rounded-xl p-6 flex flex-col relative shadow-lg">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#118AB2] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+            Most Popular
+          </div>
+          <h3 class="text-2xl font-bold text-[#073B4C]">Pro</h3>
+          <p class="text-gray-500 mb-4 h-10">Your personal guide for a focused prep.</p>
+          <div class="mb-6">
+            <p class="text-4xl font-bold text-gray-800">₹699</p>
+            <p class="text-gray-500 text-sm">per month</p>
+          </div>
+          <a href="https://rzp.io/rzp/i5AsJ6h6" class="w-full mt-auto py-2 px-4 font-bold text-white bg-[#073B4C] rounded-lg hover:bg-[#118AB2] transition text-center block">
+            Upgrade to Pro
+          </a>
+          <ul class="mt-6 space-y-3 text-sm flex-grow">
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>The iDC Roadmap (PYQ-Mapped)</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Personal Weekly Blueprint</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Weekly Group Huddle</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Community Forum Access</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>24/7 Doubt Buddy (via Chat)</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span><b>Two</b> 1:1 Strategy Sessions / month</span></li>
+          </ul>
+        </div>
+
+        <div class="border border-gray-200 bg-white rounded-xl p-6 flex flex-col">
+          <h3 class="text-2xl font-bold text-[#073B4C]">Ultra</h3>
+          <p class="text-gray-500 mb-4 h-10">Master your climb with priority access.</p>
+          <div class="mb-6">
+            <p class="text-4xl font-bold text-gray-800">₹999</p>
+            <p class="text-gray-500 text-sm">per month</p>
+          </div>
+          <a href="https://rzp.io/rzp/VCz84tg" class="w-full mt-auto py-2 px-4 font-bold text-[#073B4C] bg-white border-2 border-[#073B4C] rounded-lg hover:bg-gray-100 transition text-center block">
+            Upgrade to Ultra
+          </a>
+          <ul class="mt-6 space-y-3 text-sm flex-grow">
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>The iDC Roadmap (PYQ-Mapped)</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Personal Weekly Blueprint</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Weekly Group Huddle</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Community Forum Access</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>24/7 Doubt Buddy (via Chat)</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span><b>Four</b> 1:1 Strategy Sessions / month</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Open-Door Mentor Policy</span></li>
+            <li class="flex gap-3 text-gray-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Priority Pass for Doubts</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const upgradeBtn = document.getElementById('upgrade-btn');
+      const pricingModal = document.getElementById('pricing-modal');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+
+      upgradeBtn.addEventListener('click', () => {
+        pricingModal.classList.remove('hidden');
+        pricingModal.classList.add('flex');
+      });
+
+      const hideModal = () => {
+        pricingModal.classList.add('hidden');
+        pricingModal.classList.remove('flex');
+      };
+
+      closeModalBtn.addEventListener('click', hideModal);
+
+      pricingModal.addEventListener('click', (event) => {
+        if (event.target === pricingModal) {
+          hideModal();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
