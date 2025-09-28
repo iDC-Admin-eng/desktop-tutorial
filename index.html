@@ -90,6 +90,18 @@
         transition-duration: 0.01ms !important;
       }
     }
+    
+    /* --- NEW: CSS FOR WAVING HAMBURGER ICON --- */
+    @keyframes subtle-wave {
+      0% { transform: rotate(0); }
+      25% { transform: rotate(8deg); }
+      50% { transform: rotate(-8deg); }
+      75% { transform: rotate(8deg); }
+      100% { transform: rotate(0); }
+    }
+    #mobile-menu-button {
+      animation: subtle-wave 2s ease-in-out 1.5s infinite;
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-gray-800">
@@ -131,17 +143,14 @@
       <h2 id="mentors-heading" class="text-3xl font-bold text-center mb-6 text-slate-900">Meet Your Mentors</h2>
       <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Guidance that AI can't give, from IITians who know your struggle. We've been through the grind, and we're here to guide you every step of the way.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <!-- Mentor 1: Aditya Yadav -->
         <article class="mentor-card-container group perspective">
-          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d backface-hidden card-gradient">
-            <!-- Front Side -->
+          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d card-gradient">
             <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-6 text-center">
               <img src="aditya.jpg" alt="Aditya Yadav, IIT Madras Economics mentor profile photo" class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-white shadow-lg" loading="lazy">
               <h3 class="text-xl font-bold text-gray-800 mb-2">Aditya Yadav</h3>
               <p class="text-sm text-gray-600 mb-4">IIT Madras, Economics</p>
               <p class="text-gray-500 italic">"An expert in micro and macroeconomics, focused on building strong conceptual foundations to tackle any question."</p>
             </div>
-            <!-- Back Side -->
             <div class="absolute inset-0 rotate-y-180 backface-hidden flex flex-col p-6 text-center bg-white rounded-2xl shadow-lg">
               <div class="mentor-card-back">
                 <h4 class="font-semibold text-gray-800">Expertise:</h4>
@@ -155,17 +164,14 @@
           </div>
         </article>
 
-        <!-- Mentor 2: Vishal Raj -->
         <article class="mentor-card-container group perspective">
-          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d backface-hidden card-gradient">
-            <!-- Front Side -->
+          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d card-gradient">
             <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-6 text-center">
               <img src="vishal.jpg" alt="Vishal Raj, IIT Madras Economics mentor profile photo" class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-white shadow-lg" loading="lazy">
               <h3 class="text-xl font-bold text-gray-800 mb-2">Vishal Raj</h3>
               <p class="text-sm text-gray-600 mb-4">IIT Madras, Economics</p>
               <p class="text-gray-500 italic">"Specializes in Indian Economy and Development Economics, helping students connect theory with real-world examples."</p>
             </div>
-            <!-- Back Side -->
             <div class="absolute inset-0 rotate-y-180 backface-hidden flex flex-col p-6 text-center bg-white rounded-2xl shadow-lg">
               <div class="mentor-card-back">
                 <h4 class="font-semibold text-gray-800">Expertise:</h4>
@@ -179,17 +185,14 @@
           </div>
         </article>
 
-        <!-- Mentor 3: Aniket Raj -->
         <article class="mentor-card-container group perspective">
-          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d backface-hidden card-gradient">
-            <!-- Front Side -->
+          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d card-gradient">
             <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-6 text-center">
               <img src="aniket.jpg" alt="Aniket Raj, IIT Madras Economics mentor profile photo" class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-white shadow-lg" loading="lazy">
               <h3 class="text-xl font-bold text-gray-800 mb-2">Aniket Raj</h3>
               <p class="text-sm text-gray-600 mb-4">IIT Madras, Economics</p>
               <p class="text-gray-500 italic">"Passionate about econometrics and mathematical economics, simplifying complex models for students."</p>
             </div>
-            <!-- Back Side -->
             <div class="absolute inset-0 rotate-y-180 backface-hidden flex flex-col p-6 text-center bg-white rounded-2xl shadow-lg">
               <div class="mentor-card-back">
                 <h4 class="font-semibold text-gray-800">Expertise:</h4>
@@ -203,17 +206,14 @@
           </div>
         </article>
 
-        <!-- Mentor 4: Tushar Daila -->
         <article class="mentor-card-container group perspective">
-          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d backface-hidden card-gradient">
-            <!-- Front Side -->
+          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d card-gradient">
             <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-6 text-center">
               <img src="tushar.jpg" alt="Tushar Daila, IIT Bombay Mathematics mentor profile photo" class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-white shadow-lg" loading="lazy">
               <h3 class="text-xl font-bold text-gray-800 mb-2">Tushar Daila</h3>
               <p class="text-sm text-gray-600 mb-4">IIT Bombay, Mathematics</p>
               <p class="text-gray-500 italic">"A master of quantitative techniques and problem-solving strategies to help students excel in mathematical sections."</p>
             </div>
-            <!-- Back Side -->
             <div class="absolute inset-0 rotate-y-180 backface-hidden flex flex-col p-6 text-center bg-white rounded-2xl shadow-lg">
               <div class="mentor-card-back">
                 <h4 class="font-semibold text-gray-800">Expertise:</h4>
@@ -227,17 +227,14 @@
           </div>
         </article>
 
-        <!-- Mentor 5: Saloni Sharma -->
         <article class="mentor-card-container group perspective">
-          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d backface-hidden card-gradient">
-            <!-- Front Side -->
+          <div class="mentor-card relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d card-gradient">
             <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-6 text-center">
               <img src="saloni.jpg" alt="Saloni Sharma, IIT Bombay Statistics mentor profile photo" class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-white shadow-lg" loading="lazy">
               <h3 class="text-xl font-bold text-gray-800 mb-2">Saloni Sharma</h3>
               <p class="text-sm text-gray-600 mb-4">IIT Bombay, Statistics</p>
               <p class="text-gray-500 italic">"Makes statistics intuitive and easy to understand, focusing on data interpretation and statistical reasoning."</p>
             </div>
-            <!-- Back Side -->
             <div class="absolute inset-0 rotate-y-180 backface-hidden flex flex-col p-6 text-center bg-white rounded-2xl shadow-lg">
               <div class="mentor-card-back">
                 <h4 class="font-semibold text-gray-800">Expertise:</h4>
@@ -251,9 +248,8 @@
           </div>
         </article>
 
-        <!-- Join Us Card -->
         <article class="mentor-card-container group perspective">
-          <div class="relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d backface-hidden card-gradient bg-gradient-to-br from-blue-50 to-indigo-50">
+          <div class="relative w-full h-80 rounded-2xl shadow-lg overflow-hidden preserve-3d card-gradient bg-gradient-to-br from-blue-50 to-indigo-50">
             <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
               <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -296,8 +292,7 @@
         </button>
       </div>
       <div id="fab-container" class="fixed bottom-6 right-6 hidden group">
-        <!-- FAB menu items (expanded on click, as per JS) -->
-      </div>
+        </div>
     </div>
   </footer>
 
@@ -324,7 +319,7 @@
           }
       });
 
-      // --- NEW: Automatic Mentor Card Flipping Logic ---
+      // --- Automatic Mentor Card Flipping Logic ---
       const mentorContainers = document.querySelectorAll('.mentor-card-container');
       // Exclude the last "Join Us" card from the automatic flip
       const flippableContainers = Array.from(mentorContainers).slice(0, -1);
