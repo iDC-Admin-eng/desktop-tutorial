@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="iDC - IITians Doubt Counter: Guidance from IITians for exam preparation like GATE, CUET, and IIT-JAM. Meet mentors, access dashboards, and master your prep.">
+  <link rel="canonical" href="https://idc.example.com/">
+  <title>iDC - IITians Doubt Counter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Base Styling */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Majestic Gradient Text */
+    .text-gradient-majestic {
+      background: linear-gradient(90deg, #073B4C, #118AB2, #2a6f8a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* === NEW: Text Shine Animation === */
+    .text-shine {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+    .text-shine::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150%;
+        height: 100%;
+        background: linear-gradient(100deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 80%);
+        transform: translateX(-110%);
+        animation: text-shine-anim 2.5s infinite linear;
+    }
+    @keyframes text-shine-anim {
+        to { transform: translateX(110%); }
+    }
+
+    /* === Gentle Pulse Animation for attention === */
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.04); }
+    }
+    .animate-pulse-gentle {
+        animation: pulse 2.5s infinite ease-in-out;
+    }
+
+    /* === Silver & Rose Gold Shine Buttons === */
+    .btn-shine {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        z-index: 1;
+    }
+    .btn-shine::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(100deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%);
+        transform: translateX(-110%);
+        animation: animated-shine 3s infinite linear 1.5s;
+    }
+    @keyframes animated-shine {
+        to { transform: translateX(110%); }
+    }
+
+    .btn-silver {
+        background: linear-gradient(145deg, #f0f0f0, #b0b0b0); /* light to medium silver */
+        color: #334155; /* dark slate text for contrast */
+        border: 1px solid #d1d1d1; /* soft silver border */
+        box-shadow: 0 4px 6px rgba(176, 176, 176, 0.5); /* subtle silver shadow */
+        transition: background 0.3s ease;
+    }
+    .btn-silver:hover {
+        background: linear-gradient(145deg, #b0b0b0, #f0f0f0);
+        box-shadow: 0 6px 8px rgba(176, 176, 176, 0.7);
+    }
+    .btn-rosegold {
+        background: linear-gradient(135deg, #b8860b, #ffd700); /* dark goldenrod to gold */
+        color: #3b2e00; /* dark brown text for contrast */
+        box-shadow: 0 4px 8px rgba(184, 134, 11, 0.6);
+        border: 1px solid #b8860b;
+        transition: background 0.3s ease;
+    }
+    .btn-rosegold:hover {
+        background: linear-gradient(135deg, #ffd700, #b8860b);
+        box-shadow: 0 6px 10px rgba(255, 215, 0, 0.8);
+    }
+    .btn-shine:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Liquid Button (Unchanged) */
+    .btn-liquid { display: inline-block; position: relative; padding: 14px 28px; text-align: center; text-decoration: none; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: #fff; }
+    .btn-liquid .inner { position: relative; z-index: 2; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+    .btn-liquid::before { content: ''; position: absolute; top: -2px; left: -2px; width: calc(100% + 4px); height: calc(100% + 4px); z-index: 1; background: linear-gradient(120deg, #4285F4, #9B72F4, #EA4335, #FBBC05, #34A853, #4285F4); background-size: 400% 400%; animation: liquid-flow 10s ease-in-out infinite; }
+    .btn-liquid:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); }
+    .btn-liquid:active { transform: translateY(0); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+    @keyframes liquid-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+    /* Unchanged Helper Styles */
+    .perspective { perspective: 1000px; }
+    .preserve-3d { transform-style: preserve-3d; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .backface-hidden { backface-visibility: hidden; }
+    
+    .mentor-card-container { transition: transform 0.3s ease-in-out; }
+    .mentor-card-container:hover { transform: scale(1.05); z-index: 10; }
+    .mentor-card { transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1); }
+    .group:hover .mentor-card, .group.auto-flipped .mentor-card { transform: rotateY(180deg); }
+    
+    .mentor-card-back { padding: 0.5rem; }
+    .mentor-card-back h4 { font-size: 0.875rem; margin-bottom: 0.25rem; font-weight: 700; }
+    .mentor-card-back p { font-size: 0.75rem; line-height: 1.1rem; }
+
+    .keyboard-key { background-color: #073B4C; border-radius: 8px; padding: 0.5rem 1.25rem; color: white; font-weight: 600; font-size: 0.875rem; box-shadow: 0 2px #052a36; transition: all 0.15s ease-out; cursor: pointer; text-align: center; }
+    .keyboard-key:hover { background-color: #118AB2; transform: translateY(-1px); }
+    .keyboard-key:active { transform: translateY(1px); box-shadow: 0 0 #052a36; }
+
+    @keyframes gentle-wave { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(8deg); } 75% { transform: rotate(-8deg); } }
+    #mobile-menu-button { animation: gentle-wave 2.5s ease-in-out infinite; }
+    
+    .item-button { transition: all 0.3s ease-in-out; }
+    .item-button:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(15,23,42,0.06); }
+    .dropdown-menu { transition: all 0.3s ease-in-out; opacity: 0; visibility: hidden; transform: translateY(8px); }
+    .dropdown-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    .coming-soon { display: inline-block; padding: 6px 12px; border-radius: 999px; background: #fef08a; color: #ca8a04; font-size: 12px; font-weight: 600; position: relative; overflow: hidden; }
+    .coming-soon::after { content: ""; position: absolute; top: 0; left: -60%; width: 60%; height: 100%; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); transform: skewX(-20deg); animation: shimmer 1.8s infinite; }
+    @keyframes shimmer { 0% { left: -60%; } 100% { left: 160%; } }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    #typewriter-cursor { font-weight: 300; animation: blink 0.7s infinite; margin-left: 2px; }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .feature-item { opacity: 0; }
+    .feature-item.is-visible { animation: fadeInUp 0.6s ease-out forwards; }
+    
+    .skip-link { position: absolute; top: -40px; left: 0; background: #073B4C; color: white; padding: 8px; z-index: 100; }
+    .skip-link:focus { top: 0; }
+    :focus-visible { outline: 2px solid #073B4C; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <nav class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3">
+          <div class="bg-[#aa4e4e] rounded-lg p-2 w-10 h-10 flex items-center justify-center">
+            <span class="text-white font-bold text-lg" style="font-family: 'League Spartan', sans-serif;">iDC</span>
+          </div>
+          <span class="text-xl font-bold text-slate-800">IITians Doubt Counter</span>
+        </a>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" aria-label="Open menu" class="text-slate-700 focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+        </div>
+        <div class="hidden md:flex items-center gap-4">
+          <a href="login.html" class="keyboard-key animate-pulse-gentle">Login</a>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+        <a href="login.html" class="keyboard-key block">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container mx-auto px-6">
+    <section class="text-center py-20 md:py-28">
+      <h1 class="text-gradient-majestic text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-tight"> Welcome to iDC Plus+ </h1>
+      <p class="text-lg text-slate-600 max-w-3xl mx-auto"><span id="typewriter-text"></span><span id="typewriter-cursor">|</span></p>
+    </section>
+
+    <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 pb-20 md:pb-28">
+      <div class="group perspective mentor-card-container"><div class="relative w-full h-[12rem] mentor-card preserve-3d"><div class="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg"><img src="aditya.jpg" alt="Aditya Yadav" class="w-full h-full object-cover" loading="lazy"><div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent"><h3 class="text-white text-lg font-bold">Aditya Yadav</h3><p class="text-yellow-300 text-sm font-semibold">IIT Madras</p></div></div><div class="mentor-card-back absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-xl shadow-xl flex flex-col justify-center items-center text-center p-3"><h4 class="text-[#073B4C]">Aditya Yadav</h4><p class="text-[#118AB2] font-semibold text-xs mb-1">IIT Madras, Economics</p><p class="text-slate-600">Expert in micro/macroeconomics, building strong conceptual foundations.</p></div></div></div>
+      <div class="group perspective mentor-card-container"><div class="relative w-full h-[12rem] mentor-card preserve-3d"><div class="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg"><img src="vishal.jpg" alt="Vishal Raj" class="w-full h-full object-cover" loading="lazy"><div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent"><h3 class="text-white text-lg font-bold">Vishal Raj</h3><p class="text-yellow-300 text-sm font-semibold">IIT Madras</p></div></div><div class="mentor-card-back absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-xl shadow-xl flex flex-col justify-center items-center text-center p-3"><h4 class="text-[#073B4C]">Vishal Raj</h4><p class="text-[#118AB2] font-semibold text-xs mb-1">IIT Madras, Economics</p><p class="text-slate-600">Specializes in Indian & Development Economics, connecting theory to reality.</p></div></div></div>
+      <div class="group perspective mentor-card-container"><div class="relative w-full h-[12rem] mentor-card preserve-3d"><div class="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg"><img src="aniket.jpg" alt="Aniket Raj" class="w-full h-full object-cover" loading="lazy"><div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent"><h3 class="text-white text-lg font-bold">Aniket Raj</h3><p class="text-yellow-300 text-sm font-semibold">IIT Madras</p></div></div><div class="mentor-card-back absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-xl shadow-xl flex flex-col justify-center items-center text-center p-3"><h4 class="text-[#073B4C]">Aniket Raj</h4><p class="text-[#118AB2] font-semibold text-xs mb-1">IIT Madras, Economics</p><p class="text-slate-600">Passionate about econometrics, simplifying complex models for students.</p></div></div></div>
+      <div class="group perspective mentor-card-container"><div class="relative w-full h-[12rem] mentor-card preserve-3d"><div class="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg"><img src="tushar.jpg" alt="Tushar Daila" class="w-full h-full object-cover" loading="lazy"><div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent"><h3 class="text-white text-lg font-bold">Tushar Daila</h3><p class="text-sky-300 text-sm font-semibold">IIT Bombay</p></div></div><div class="mentor-card-back absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-xl shadow-xl flex flex-col justify-center items-center text-center p-3"><h4 class="text-[#073B4C]">Tushar Daila</h4><p class="text-[#118AB2] font-semibold text-xs mb-1">IIT Bombay, Mathematics</p><p class="text-slate-600">A master of quantitative techniques and problem-solving strategies.</p></div></div></div>
+      <div class="group perspective mentor-card-container"><div class="relative w-full h-[12rem] mentor-card preserve-3d"><div class="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg"><img src="saloni.jpg" alt="Saloni Sharma" class="w-full h-full object-cover" loading="lazy"><div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent"><h3 class="text-white text-lg font-bold">Saloni Sharma</h3><p class="text-sky-300 text-sm font-semibold">IIT Bombay</p></div></div><div class="mentor-card-back absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-xl shadow-xl flex flex-col justify-center items-center text-center p-3"><h4 class="text-[#073B4C]">Saloni Sharma</h4><p class="text-[#118AB2] font-semibold text-xs mb-1">IIT Bombay, Statistics</p><p class="text-slate-600">Makes statistics intuitive, focusing on data interpretation.</p></div></div></div>
+      <div class="group perspective mentor-card-container"><div class="relative w-full h-[12rem] mentor-card preserve-3d"><div class="absolute w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg"><div class="w-full h-full flex items-center justify-center text-center p-4 bg-slate-100 border-2 border-dashed border-slate-300"><span class="text-lg font-bold text-slate-500">More Mentors Coming Soon!</span></div></div><div class="mentor-card-back absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-xl shadow-xl flex flex-col justify-center items-center text-center p-3"><h4 class="text-[#073B4C]">Join Us</h4><p class="text-slate-600">We're always looking for new IITians to join our team and mentor the next generation!</p></div></div></div>
+    </section>
+
+    <section class="pb-20 md:pb-28">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-200/50">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl text-slate-800 font-extrabold">Everything You Need to Succeed</h2>
+                <p class="text-lg text-slate-500 mt-2">All the resources to boost your preparation, in one place.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📄</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">PYQ with Onspot Doubt Resolution</div>
+                            <div class="text-sm text-slate-500">Solved papers</div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="gate_2025_paper.html" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50 flex justify-between items-center"><span>GATE</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50 flex justify-between items-center"><span>IIT-JAM</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50 flex justify-between items-center"><span>CUET</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50 flex justify-between items-center"><span>UGC-NET</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📖</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">iDC Formula Sheet</div>
+                            <div class="text-sm text-slate-500">Study materials</div>
+                        </div>
+                        <span class="coming-soon">Soon</span>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">🗺️</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Syllabus & Plan + live tracker</div>
+                            <div class="text-sm text-slate-500">Guides & roadmaps</div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50 flex justify-between items-center"><span>GATE</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50 flex justify-between items-center"><span>IIT-JAM</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50 flex justify-between items-center"><span>CUET</span></a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50 flex justify-between items-center"><span>UGC-NET</span> <span class="coming-soon !py-0.5 !px-2 !text-[10px]">Soon</span></a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📊</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Mock Tests</div>
+                            <div class="text-sm text-slate-500">Practice exams</div>
+                        </div>
+                        <span class="coming-soon">Soon</span>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📰</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Exam Updates</div>
+                            <div class="text-sm text-slate-500">Latest news</div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="#" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">📅</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Live Weekend Guidance</div>
+                            <div class="text-sm text-slate-500"><span class="text-shine font-semibold text-slate-600">Sunday sessions</span></div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="https://meet.google.com/cmq-fgdy-oaj" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+                <div class="group relative">
+                    <button class="item-button bg-slate-100/60 rounded-xl p-5 flex items-center gap-4 w-full text-left">
+                        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-2xl">💬</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-slate-800">Talk to Mentor</div>
+                            <div class="text-sm text-slate-500">Expert guidance</div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full mt-1 w-full bg-white rounded-lg shadow-lg overflow-hidden z-10">
+                        <a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#B33A3A] hover:bg-slate-50">GATE</a>
+                        <a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#0F8193] hover:bg-slate-50">IIT-JAM</a>
+                        <a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#6A4FB1] hover:bg-slate-50">CUET</a>
+                        <a href="https://wa.me/message/73ZYJBXS3UAZH1" class="block px-4 py-3 text-sm font-semibold text-[#F59F00] hover:bg-slate-50">UGC-NET</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-20 md:py-28">
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="p-8 md:p-16 text-center">
+          <h2 class="text-gradient-majestic text-4xl md:text-5xl font-extrabold mb-8 leading-tight max-w-3xl mx-auto">Go Beyond Doubt Solving. Master Your Prep.</h2>
+          <div class="space-y-8 max-w-2xl mx-auto text-left mb-12"><div class="flex items-start gap-4 feature-item"><div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-sky-100 text-sky-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 10v-5l6-3v5l-6 3z" /></svg></div><div><h3 class="text-lg font-semibold text-slate-800">IITian-Crafted Roadmaps</h3><p class="text-slate-600 mt-1">Get detailed, step-by-step study plans for every chapter, showing you the exact path to success.</p></div></div><div class="flex items-start gap-4 feature-item"><div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-sky-100 text-sky-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg></div><div><h3 class="text-lg font-semibold text-slate-800">Targeted PYQ Strategy</h3><p class="text-slate-600 mt-1">Know precisely which Previous Year Questions to solve and when, turning theory into practical exam skill.</p></div></div><div class="flex items-start gap-4 feature-item"><div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-sky-100 text-sky-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg></div><div><h3 class="text-lg font-semibold text-slate-800">Turn Hard Work into Ranks</h3><p class="text-slate-600 mt-1">Our structured methodology is designed to convert your dedicated effort into measurable success.</p></div></div></div>
+          <button id="get-started-btn" class="keyboard-key text-base py-3 px-8 animate-pulse-gentle">Updrade Your Plan </button>
+        </div>
+      </div>
+    </section>
+
+   <div id="pricing-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-start justify-center p-4 pt-16 sm:p-6 md:items-center md:pt-6 z-50 transition-opacity duration-300 overflow-y-auto">
+  <div class="bg-slate-50 rounded-2xl shadow-xl p-6 md:p-8 max-w-5xl w-full relative transform scale-95 transition-transform duration-300">
+    <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <h2 class="text-3xl font-bold text-center text-slate-800 mb-2">Choose Your Plan</h2>
+    <p class="text-center text-slate-500 mb-8">Your journey, guided by IITians. Plans that work for you.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="border border-slate-200 bg-white rounded-xl p-6 flex flex-col">
+        <h3 class="text-2xl font-bold text-[#073B4C]">Plus</h3>
+        <p class="text-slate-500 mb-4 h-10">Perfect for the self-driven student.</p>
+        <div class="mb-6">
+          <p class="text-4xl font-bold text-slate-800"><del class="text-slate-400 font-normal text-2xl">₹399</del> Free</p>
+          <p class="text-slate-500 text-sm">per month</p>
+          <p class="font-semibold text-green-700 text-sm mt-1 bg-green-100 px-2 py-1 inline-block rounded">Free until 15th Oct</p>
+        </div>
+        <a href="dashboard.html" class="btn-liquid w-full block"><span class="inner">Claim Now!</span></a>
+        <ul class="mt-6 space-y-3 text-sm flex-grow">
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Detailed PYQ Solutions with Doubt Support</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Personal topic to topic time tracker</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Weekly live session with mentors</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>iDC Group Access</span></li>
+          <li class="flex gap-3 text-slate-400"><svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li>
+          <li class="flex gap-3 text-slate-400"><svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg><span>24/7 Doubt Resolution via audio/video</span></li>
+        </ul>
+      </div>
+
+      <div class="border-2 border-[#118AB2] bg-white rounded-xl p-6 flex flex-col relative shadow-lg">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#118AB2] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</div>
+        <h3 class="text-2xl font-bold text-[#073B4C]">Pro</h3>
+        <p class="text-slate-500 mb-4 h-10">Your personal guide for a focused prep.</p>
+        <div class="mb-6">
+          <p class="text-4xl font-bold text-slate-800">₹699</p>
+          <p class="text-slate-500 text-sm">per month</p>
+        </div>
+        <a href="https://rzp.io/l/i5AsJ6h6" class="btn-shine btn-silver w-full block py-3 text-base font-bold rounded-lg text-center">Upgrade to Pro</a>
+        <ul class="mt-6 space-y-3 text-sm flex-grow">
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Everything in Plus, and:</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Dedicated Mentor Guide</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>24/7 Doubt Resolution via audio/video</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span><b>Two</b> 1:1 Strategy Sessions / month</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span class="font-semibold text-sky-700">Topic-wise Mock Tests (GATE, CUET, JAM & NET)</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span class="font-semibold text-sky-700">Adaptive Mocks (Based on Your Weak Areas)</span></li>
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 bg-white rounded-xl p-6 flex flex-col">
+        <h3 class="text-2xl font-bold text-[#073B4C]">Ultra</h3>
+        <p class="text-slate-500 mb-4 h-10">Master your climb with priority access.</p>
+        <div class="mb-6">
+          <p class="text-4xl font-bold text-slate-800">₹999</p>
+          <p class="text-slate-500 text-sm">per month</p>
+        </div>
+        <a href="https://rzp.io/l/VCz84tg" class="btn-shine btn-rosegold w-full block py-3 text-base font-bold rounded-lg text-center">Upgrade to Ultra</a>
+        <ul class="mt-6 space-y-3 text-sm flex-grow">
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Everything in Pro, and:</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span><b>Four</b> 1:1 Strategy Sessions / month</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span>Priority Pass for Doubts</span></li>
+          <li class="flex gap-3 text-slate-800"><svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg><span class="font-semibold text-sky-700">Full-Length Mock Series (GATE, CUET, JAM & NET)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <footer class="text-center py-10 bg-white border-t"><p class="text-slate-500 text-sm">&copy; 2025 iDC - IITians Doubt Counter. All Rights Reserved.</p></footer>
+
+  <div id="fab-container" class="group fixed bottom-6 right-6 z-50">
+    <div id="fab-options" class="absolute bottom-full right-0 mb-3 w-64 bg-white rounded-xl shadow-2xl border border-slate-200 p-2 transition-all duration-300 ease-in-out transform scale-95 opacity-0 invisible group-hover:scale-100 group-hover:opacity-100 group-hover:visible"><a href="https://wa.me/message/73ZYJBXS3UAZH1" target="_blank" class="block w-full text-left px-4 py-2 text-sm text-slate-700 rounded-lg hover:bg-slate-100">Request a PYQ</a><a href="https://wa.me/message/73ZYJBXS3UAZH1" target="_blank" class="block w-full text-left px-4 py-2 text-sm text-slate-700 rounded-lg hover:bg-slate-100">Request Notes / Study Material</a><a href="https://wa.me/message/73ZYJBXS3UAZH1" target="_blank" class="block w-full text-left px-4 py-2 text-sm text-slate-700 rounded-lg hover:bg-slate-100">Ask for a Doubt Solution</a><a href="https://wa.me/message/73ZYJBXS3UAZH1" target="_blank" class="block w-full text-left px-4 py-2 text-sm text-slate-700 rounded-lg hover:bg-slate-100">Request a New Feature on iDC</a><a href="https://wa.me/message/73ZYJBXS3UAZH1" target="_blank" class="block w-full text-left px-4 py-2 text-sm text-slate-700 rounded-lg hover:bg-slate-100">Mentor Guidance / Career Query</a><a href="https://wa.me/message/73ZYJBXS3UAZH1" target="_blank" class="block w-full text-left px-4 py-2 text-sm text-slate-700 rounded-lg hover:bg-slate-100">Report an Issue / Feedback</a></div>
+    <button id="fab-button" aria-label="Open contact options" class="flex items-center justify-center gap-3 bg-[#073B4C] text-white font-bold py-3 px-5 rounded-full shadow-lg hover:bg-[#118AB2] transition-all duration-300 transform hover:scale-105 focus:outline-none animate-pulse-gentle">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.273-.099-.471-.148-.67.148-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.67-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.794.372c-.273.296-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span>Tell Us What You Need</span>
+    </button>
+  </div>
+
+  <script>
+    // All JavaScript remains the same, no changes needed here.
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+      const fabContainer = document.getElementById('fab-container');
+      const fabButton = document.getElementById('fab-button');
+      fabButton.addEventListener('click', (event) => { event.stopPropagation(); fabContainer.classList.toggle('group'); });
+      document.addEventListener('click', () => { if (!fabContainer.classList.contains('group')) { fabContainer.classList.add('group'); } });
+      const mentorContainers = document.querySelectorAll('.mentor-card-container');
+      const flippableContainers = Array.from(mentorContainers).slice(0, -1);
+      let currentContainerIndex = 0;
+      if (flippableContainers.length > 0) { setInterval(() => { const previousIndex = (currentContainerIndex - 1 + flippableContainers.length) % flippableContainers.length; flippableContainers[previousIndex].classList.remove('auto-flipped'); flippableContainers[currentContainerIndex].classList.add('auto-flipped'); currentContainerIndex = (currentContainerIndex + 1) % flippableContainers.length; }, 3000); }
+      const featureItems = document.querySelectorAll('.feature-item');
+      const observer = new IntersectionObserver((entries) => { entries.forEach((entry, index) => { if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('is-visible'); }, index * 200); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+      featureItems.forEach(item => { observer.observe(item); });
+      const typewriterTextElement = document.getElementById('typewriter-text');
+      const textToType = "Hey champ!, we beat the hard stuff too. As IITians, we're with you - now get up , let's make your dreams come true .";
+      let charIndex = 0;
+      const typingSpeed = 30;
+      function typeWriter() { if (charIndex < textToType.length) { typewriterTextElement.textContent += textToType.charAt(charIndex); charIndex++; setTimeout(typeWriter, typingSpeed); } }
+      typeWriter();
+      const getStartedBtn = document.getElementById('get-started-btn');
+      const pricingModal = document.getElementById('pricing-modal');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const modalContent = pricingModal.querySelector('div');
+      const showModal = () => { pricingModal.classList.remove('hidden'); pricingModal.classList.add('flex'); setTimeout(() => modalContent.classList.remove('scale-95'), 10); };
+      const hideModal = () => { modalContent.classList.add('scale-95'); setTimeout(() => { pricingModal.classList.add('hidden'); pricingModal.classList.remove('flex'); }, 300); };
+      getStartedBtn.addEventListener('click', showModal);
+      closeModalBtn.addEventListener('click', hideModal);
+      pricingModal.addEventListener('click', (event) => { if (event.target === pricingModal) { hideModal(); } });
+      const resourceButtons = document.querySelectorAll('.item-button');
+      resourceButtons.forEach(button => { button.addEventListener('click', (event) => { event.preventDefault(); const dropdown = button.nextElementSibling; const isOpen = dropdown.classList.contains('is-open'); document.querySelectorAll('.dropdown-menu.is-open').forEach(menu => { if (menu !== dropdown) menu.classList.remove('is-open'); }); dropdown.classList.toggle('is-open'); }); });
+      document.addEventListener('click', (event) => { if (!event.target.closest('.group')) { document.querySelectorAll('.dropdown-menu.is-open').forEach(menu => { menu.classList.remove('is-open'); }); } });
+    });
+  </script>
+</body>
+</html>
