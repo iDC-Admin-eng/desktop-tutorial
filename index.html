@@ -29,35 +29,58 @@
 }
   /* Add this to your main <style> block */
 
-.btn-gradient-animated {
-  /* Core styles */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem; /* 8px */
-  padding: 0.75rem 1.5rem; /* 12px 24px */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature-item {
+  opacity: 0; /* Hidden by default */
+}
+
+.feature-item.is-visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+  
+  .btn-3d-push {
+  /* The container/bottom layer */
+  display: inline-block;
+  position: relative;
   border: none;
-  border-radius: 0.5rem; /* 8px */
-  font-weight: 700;
-  color: white;
+  border-radius: 0.75rem; /* 12px */
+  background: hsl(195, 85%, 20%); /* Darker shade for the "depth" */
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(17, 138, 178, 0.3);
-  transition: all 0.3s ease-in-out;
-
-  /* Animated Gradient */
-  background-image: linear-gradient(45deg, #073B4C 0%, #118AB2 51%, #073B4C 100%);
-  background-size: 200% auto;
+  transition: transform 0.1s ease-out;
 }
 
-.btn-gradient-animated:hover {
-  background-position: right center; /* Change background direction */
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(17, 138, 178, 0.5);
+.btn-3d-push-front {
+  /* The visible, top layer of the button */
+  display: block;
+  padding: 0.75rem 2rem; /* 12px 32px */
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 1.125rem; /* 18px */
+  background: #073B4C;
+  color: white;
+  transform: translateY(-4px); /* Pushes the front face up */
+  transition: transform 0.2s ease-out, background-color 0.2s;
 }
 
-.btn-gradient-animated:active {
-  transform: translateY(-1px);
-}    body {
+.btn-3d-push:hover .btn-3d-push-front {
+  background: #118AB2;
+  transform: translateY(-6px); /* Lifts higher on hover */
+}
+
+.btn-3d-push:active .btn-3d-push-front {
+  transform: translateY(-2px); /* Pushes down when clicked */
+}
+    body {
       font-family: 'Inter', sans-serif;
     }
     .perspective {
@@ -540,12 +563,9 @@
       </div>
 
       <a href="login.html" class="btn-3d-push">
-      <a href="login.html" class="btn-gradient-animated">
-  <span>Get Started</span>
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-  </svg>
-</a>
+        <span class="btn-3d-push-front">
+          Get Started  -->
+        </span>
       </a>
     </div>
   </div>
